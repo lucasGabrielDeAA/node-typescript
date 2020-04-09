@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 
 import routes from "./routes";
 
@@ -7,6 +8,9 @@ const PORT = 3333;
 
 // instantianting our app.
 const app = express();
+
+// adding cors
+app.use(cors());
 
 // configuring routes.
 app.use(routes);
