@@ -2,7 +2,15 @@
 
 This project contains a little demonstration of **How to Typescript your Node app**.
 
-You can do this using a simple node app, creating a folder and running some commands, like the following example. 
+If you just want to clone this repository, and run the application, follow this steps.
+
+```
+  git clone https://github.com/lucasGabrielDeAA/node-typescript && cd node-typescript
+  yarn install
+  yarn dev
+```
+
+Or, if you want to create your own app, you can do this using a simple node app, creating a folder and running some commands, like the following example. 
 
 ```
   mkdir <yourAppName> && cd <yourAppName>
