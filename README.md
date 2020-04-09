@@ -206,7 +206,7 @@ Then create the **controllers** folder under the **src**, and add the **UserCont
   };
 ```
 
-And update our **index.ts** file to use this content. Note that we are already using types for declaring variables received by the controller. This types comes from the `express` because the **req** and **res** variable are from the 
+And update our **index.ts** file to use this content. Note that we are already using types for declaring variables received by the controller. This types comes from the `express` because the **req** and **res** variable are from the `node` **IRouterHandler** that extends **RequestHandler** and receive the arguments from the type **Request** and **Response**. This is the beginning of typing with typescript. 
 
 ```javascript
   import express from 'express';
