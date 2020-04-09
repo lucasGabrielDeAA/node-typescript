@@ -273,16 +273,6 @@ The two arguments of the method send need a type. We are going to create this tw
   }
 ```
 
-And in the `send` method change the declaration to this.
-
-```javascript
-  ...
-  send({to, message}: MessageDTO) {
-    console.log(`Email sent to ${to.email}: ${message.subject}`);
-  }
-  ...
-```
-
 And in our **UserController.ts** file add a controller to send emails. Remember to add the route to this controller in the **routes.ts** file.
 
 ```javascript
