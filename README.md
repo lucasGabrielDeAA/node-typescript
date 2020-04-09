@@ -7,6 +7,7 @@ If you just want to clone this repository, and run the application, follow this 
 ```
   git clone https://github.com/lucasGabrielDeAA/node-typescript && cd node-typescript
   yarn install
+  yarn tsc
   yarn dev
 ```
 
