@@ -8,6 +8,6 @@ const routes = Router();
 
 // Declaring routes.
 routes.get("/users", UserController.index);
-routes.get("/users/send", UserController.sendEmail);
+routes.post("/users", UserController.sendEmail);
 
 export default routes;
