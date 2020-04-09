@@ -1,17 +1,17 @@
 interface IMailTo {
-  name: string,
-  email: string,
+  name: string;
+  email: string;
 }
 
 interface IMailMessage {
-  subject: string,
-  body: string,
+  subject: string;
+  body: string;
   attachament?: Array<string>;
 }
 
 interface MessageDTO {
-  to: IMailTo,
-  message: IMailMessage,
+  to: IMailTo;
+  message: IMailMessage;
 }
 
 class EmailService {
