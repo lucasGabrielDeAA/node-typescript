@@ -47,7 +47,7 @@ But what is the difference, is just syntax. Yeah, is just syntax, but when you'r
   // application's PORT
   const PORT = 3333;
 
-  // instancianting our app.
+  // instantianting our app.
   const app = express();
 
   // creating a route
@@ -220,4 +220,90 @@ Note that we are already using types for declaring variables received by the con
   app.use(routes);
 
   app.listen(PORT);
+```
+
+Then go to browser and access **localhost:3333/users** to see the result.
+
+# Custom Types
+
+You always need to use some variable or some class created by yourself in your application, son, in this case, you don't have the Types from this information in a library or a decorator's dependency. In this case you have to create the type by hand. Let's do this.
+
+First of all, we are going to create a fictitious mailer service in our application. Create a **service** folder under the **src** folder and create a **EmailService.ts** on it. This file will contains a **class** used to instantiate our service, and the functionality to send emails.
+
+```javascript
+  class EmailService {
+    send(to, message) {
+      console.log('Email sent');
+    }
+  }
+
+  export default EmailService;
+```
+
+The two arguments of the method send need a type. We are going to create this two type using the **interface** concept. In the **EmailService.ts** file before the class, add this content.
+
+```javascript
+  // interfaces defines our custom types and the type of yours attributes.
+  interface IMailTo {
+    name: string,
+    email: string,
+  }
+
+  interface IMailMessage {
+    subject: string,
+    body: string,
+    attachament?: Array<string>; // The ? operator indicates not-required information.
+  }
+
+  // Data-transfer-object to transfer information between two different files in our application.
+  interface MessageDTO {
+    to: IMailTo,
+    message: IMailMessage
+  }
+
+  // This interface determines the standard model of our EmailService's class.
+  interface IEmailService {
+    send(request: MessageDTO): void
+  }
+
+  class EmailService implements IEmailService {
+    send({ to, message }: MessageDTO) {
+      console.log(`Email sent to ${to.email}: ${message.subject}`);
+    }
+  }
+```
+
+And in the `send` method change the declaration to this.
+
+```javascript
+  ...
+  send({to, message}: MessageDTO) {
+    console.log(`Email sent to ${to.email}: ${message.subject}`);
+  }
+  ...
+```
+
+And in our **UserController.ts** file add a controller to send emails. Remember to add the route to this controller in the **routes.ts** file.
+
+```javascript
+  // UserController.ts
+  import EmailService from '../services/EmailService';
+
+  ...
+  async send(req: Request, res: Response) {
+    const emailService = new EmailService();
+
+    emailService.sendEmail(
+      { name: 'Some name', email: 'someemail@domain.com' },
+      { subject: 'Welcome to the system', body: 'Be welcome!'}
+    );
+
+    return res.send('OK');
+  }
+  ...
+
+  //routes.ts
+  ...
+  routes.get('/users/send', UserController.sendEmail);
+  ...
 ```
