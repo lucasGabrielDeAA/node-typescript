@@ -8,8 +8,10 @@ If you just want to clone this repository, and run the application, follow this 
   git clone https://github.com/lucasGabrielDeAA/node-typescript && cd node-typescript
   yarn install
   yarn tsc
-  yarn dev
+  yarn start
 ```
+
+Open the browser on **localhost:3333** and see the app working, using **javascript** transpiled from the **typescript**
 
 Or, if you want to create your own app, you can do this using a simple node app, creating a folder and running some commands, like the following example. 
 
@@ -306,3 +308,33 @@ And in our **UserController.ts** file add a controller to send emails. Remember 
   routes.get('/users/send', UserController.sendEmail);
   ...
 ```
+
+This repository contains only the backend of the full application. Let's do some changes to go forward and create a frontend application using typescript to access this application.
+
+First of all, install the `cors` and the `@types/cors` to enable our application to receive request from another hosts.
+
+```
+  yarn add cors
+  yarn add @types/cors
+```
+
+In the **index.ts** file add this lines.
+
+```javascript
+  ...
+  import cors from "cors";
+
+  ...
+  // adding cors
+  app.use(cors());
+```
+
+I also added a start script to run the application using **js**. to do this, add this line on the **scripts** entry under the **dev** script on your **package.json** file.
+
+```json
+  "start": "node dist/index.js"
+```
+
+And we are ready to go.
+
+To take a look in the frontend application built with **react** and **typescript**. click here [react-typescript](https://github.com/lucasGabrielDeAA/react-typescript).
