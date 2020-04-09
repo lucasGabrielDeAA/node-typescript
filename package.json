@@ -9,6 +9,8 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
+    "@types/cors": "^2.8.6",
+    "cors": "^2.8.5",
     "express": "^4.17.1"
   },
   "scripts": {
