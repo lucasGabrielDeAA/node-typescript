@@ -193,12 +193,6 @@ First of all, we are going to create a routes's file to our application, called 
 Then create the **controllers** folder under the **src**, and add the **UserController.ts** file with this content.
 
 ```javascript
-
-```
-
-And update our **index.ts** file to use this content. Note that we are already using types for declaring variables received by the controller. This types comes from the `express` because the **req** and **res** variable are from the 
-
-```javascript
   import { Request, Response } from 'express';
 
   const users = [
@@ -210,4 +204,20 @@ And update our **index.ts** file to use this content. Note that we are already u
       return res.json(users);
     },
   };
+```
+
+And update our **index.ts** file to use this content. Note that we are already using types for declaring variables received by the controller. This types comes from the `express` because the **req** and **res** variable are from the 
+
+```javascript
+  import express from 'express';
+
+  import routes from './routes';
+
+  const PORT = 3333;
+
+  const app = express();
+
+  app.use(routes);
+
+  app.listen(PORT);
 ```
