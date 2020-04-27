@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import EmailService from "../services/EmailService";
 
-const users = [{ name: "Lucas Gabriel", email: "lg.technus@gmail.com" }];
+const users = [{ name: "Your name", email: "your_email@domain.com" }];
 
 export default {
   async index(req: Request, res: Response) {
@@ -12,7 +12,7 @@ export default {
     const emailService = new EmailService();
 
     emailService.send({
-      to: { name: "Lucas Gabriel", email: "lg.technus@gmail.com" },
+      to: { name: "Your name", email: "your_email@domain.com" },
       message: { subject: "Welcome to the system", body: "Be welcome!" },
     });
 
