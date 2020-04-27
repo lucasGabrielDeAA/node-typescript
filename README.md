@@ -90,7 +90,7 @@ Now, you can find the inner types and modules of express, in your **ts** file.
 
 ## Running the application
 
-Now we need to run our node application, normally we would do this by running `node src/index.js`. But, we don't have a index.js file, and if we run `node src/index.ts` we'll find some problems, because node does nos understand the syntax on our **ts** file.
+Now we need to run our node application, normally we would do this by running `node src/index.js`. But, we don't have a index.js file, and if we run `node src/index.ts` we'll find some problems, because node does not understand the syntax on our **ts** file.
 
 ```
   SyntaxError: Cannot use import statement outside a module
