@@ -2,7 +2,7 @@
 
 This project contains a little demonstration of **How to Typescript your Node app**.
 
-If you just want to clone this repository, and run the application, follow this steps.
+If you just want to clone this repository, and run the application, follow these steps.
 
 ```
   git clone https://github.com/lucasGabrielDeAA/node-typescript && cd node-typescript
