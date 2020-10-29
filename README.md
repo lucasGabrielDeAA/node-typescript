@@ -158,7 +158,7 @@ Uncomment this and change is to the location you desire. I'll put in a **./dist*
 
 Now, if you run the typescript command again, you will see the dist's folder with the index.js file on it. And then to restart your application, you just need to change the path from `node src/index.js` to `node dist/index.js`.
 
-## Improving the typescript trnspile process
+## Improving the typescript transpile process
 
 to avoid to always delete our **index.js** file, re-run the **typescript** command and re-compile our application using **node**. We are going to find a solution to make all this process even simple. In standard node applications you can use the `nodemon, Babel, or even the sucrase` to do this flux for you. In our **typescript** environment we are going to use a lib called `ts-node-dev`.
 
